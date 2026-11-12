@@ -27,3 +27,4 @@ if(kind==='ad-id-declaration')return [await P('Ναι',true),await P('Λειτο
 if(kind==='target-audience-content')return [await P('13-15',true),await P('16-17',true),await P('Άνω των 18 ετών',true),await B('Επόμενο'),...await sv()];
 return 'unknown';};
 window.LOADED=Date.now();
+window.COUNTRIES=async()=>{const b=[...document.querySelectorAll('button,a,[role=button]')].find(e=>e.offsetParent&&e.textContent.trim()==='Προσθέστε χώρες/περιοχές');if(!b)return 'no add btn';R(b);await W(4500);const h=document.querySelector('[role=checkbox][aria-label="Επιλογή όλων των σειρών"]');if(!h)return 'no select-all';h.scrollIntoView({block:'center'});R(h.querySelector('input')||h);await W(1500);return [...document.querySelectorAll('[role=checkbox]')].filter(c=>c.querySelector('input')?.checked).length;};
